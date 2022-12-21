@@ -1,8 +1,6 @@
 //get libraries to use
 const inquirer = require('inquirer');
 const fs = require('fs');
-const path = require('path');
-const generateHtml = require('./units/generatehtml')
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
@@ -93,11 +91,6 @@ const questions = {
     },
     ],
 };
-
-//create function to write the html
-// function writeToFile(fileName, data) {
-//     return fs.writeFileSync(path.join(process.cwd(), fileName), data)
-// }
 
 function addIntern() {
     return inquirer.prompt(questions.intern)

@@ -19,7 +19,7 @@ test("Github", () => {
 })
 
 //test getRole method
-test("getRole", () => {
+test("getRole()", () => {
     //assign "Engineer" to a new role variable
     const engineer = new Engineer()
     //Instantiate the Employee class, passing an employee name, id, email, and github as arguments, to create an object and assign it to a new variable
@@ -27,7 +27,7 @@ test("getRole", () => {
 })
 
 //test get github method
-test("", () => {
+test("getGithub()", () => {
     //assign github account to a new variable
     const github = 'Val-gee'
     //Instantiate the Employee class, passing an employee name, id, email, and github as arguments, to create an object and assign it to a new variable
