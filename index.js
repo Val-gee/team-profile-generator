@@ -4,6 +4,11 @@ const fs = require('fs');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
+const template = require('./src/template');
+const path = require('path');
+const dist = path.resolve(__dirname, 'dist');
+const distPath = path.join(dist, 'team.html');
+
 const team = [];
 
 //create array of qestions for each employee
@@ -108,6 +113,7 @@ function addIntern() {
         })
 }
 
+
 function addEngineer() {
     return inquirer.prompt(questions.engineer)
         .then((answers) => {
@@ -126,37 +132,10 @@ function addEngineer() {
 
 function buildTeam() {
     console.log("Generating HTML file");
-    fs.writeFileSync("./dist/team.html", `
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="Description" content="Enter your description here"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet" href="./css/style.css">
-<title>Team Profile Generator</title>
-</head>
-<body>
-    `)
-    for (let i = 0; i < team.length; i++){
-        fs.appendFileSync("./dist/team.html", `
-        <div>${team[i].name}</div>
-        <div>${team[i].id}</div>
-        <div>${team[i].email}</div>
-        <div>${team[i].special}</div>
-        `)
-    }
-
-    fs.appendFileSync("./dist/team.html", `   
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-</body>
-</html>
-    `)
+    if (!fs.existsSync(dist)) {
+        fs.mkdirSync(dist)
+    } 
+    fs.writeFileSync(distPath, template(team), 'utf-8')
 }
 
 //create the function to start the program
