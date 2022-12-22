@@ -127,7 +127,7 @@ Finally, although it’s not a requirement, consider adding validation to ensure
 
 ## Walkthrough Video: 
 
-* [Walkthrough link](file:///Users/valentinag/Downloads/Untitled_%20Dec%2022,%202022%204_16%20PM.webm)
+* [Walkthrough link](https://drive.google.com/file/d/1Fgi8QkQMwg7niDp2VrqxnYvgUj210xoY/view)
 
 ## Screenshot of html in browser
 
